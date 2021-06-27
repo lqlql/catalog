@@ -1,0 +1,12 @@
+/app/config/app.php
+
+*.log
+*.data
+*.save
+*.mo
+*.rdb
+
+composer.phar
+/vendor/*
+
+.idea/

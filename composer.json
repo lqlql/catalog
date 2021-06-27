@@ -1,0 +1,21 @@
+{
+  "require": {
+    "php-di/php-di": "*",
+    "monolog/monolog": "*",
+    "ext-pdo": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Repository\\": "app/repository",
+      "Model\\": "app/model",
+      "Service\\": "app/service",
+      "Libs\\": "libraries",
+      "Controller\\": "app/controller",
+      "Libs\\Db\\Mysql\\": "libraries/db/mysql",
+      "Libs\\Util\\": "libraries/util"
+    }
+  }
+}
