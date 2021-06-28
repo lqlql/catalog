@@ -109,12 +109,13 @@ class ProductRepository extends AbstractRepository
         $sql = 'insert into products 
                   (title, price, createdDt, updatedDt, isDeleted)
                 values 
-                  (:title, :price, :createdDt, :updatedDt, :isDeleted)';
+                  (:title, :price, :createdDt, :updatedDt, :isDeleted)
+                on duplicate key update 
+                    updatedDt = :updatedDt, price = :price, isDeleted = 0';
         /** @var \PDO $pdo */
         $pdo = DI::service('mysql')->getConnection('write');
         $sth = $pdo->prepare($sql);
         $sth->execute($insertData);
-
         if (!$insertData['productId'] = (int)$pdo->lastInsertId()) {
             return null;
         }

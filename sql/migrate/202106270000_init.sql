@@ -3,7 +3,7 @@ create table products
     productId int unsigned auto_increment
         primary key,
     title     varchar(255)             not null,
-    price     int unsigned default '0' null,
+    price     int unsigned             not  null,
     createdDt int unsigned             null,
     updatedDt int unsigned             null,
     isDeleted tinyint      default 0   null,

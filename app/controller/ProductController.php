@@ -44,6 +44,7 @@ class ProductController extends AbstractController
         }
         $params['price'] = Price::toInt((float)$params['price']);
         $product = ProductRepository::addNewProduct($params);
+        var_dump($product);
         if (!$product) {
             return [];
         }
