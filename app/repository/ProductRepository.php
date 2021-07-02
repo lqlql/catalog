@@ -102,16 +102,14 @@ class ProductRepository extends AbstractRepository
         $insertData = [
             'title' => (string)$params['title'],
             'price' => (int)$params['price'],
-            'createdDt' => time(),
-            'updatedDt' => time(),
             'isDeleted' => 0,
         ];
         $sql = 'insert into products 
                   (title, price, createdDt, updatedDt, isDeleted)
                 values 
-                  (:title, :price, :createdDt, :updatedDt, :isDeleted)
+                  (:title, :price, unix_timestamp(), unix_timestamp(), isDeleted)
                 on duplicate key update 
-                    updatedDt = :updatedDt, price = :price, isDeleted = 0';
+                    updatedDt = unix_timestamp(), price = :price, isDeleted = 0';
         /** @var \PDO $pdo */
         $pdo = DI::service('mysql')->getConnection('write');
         $sth = $pdo->prepare($sql);
@@ -128,22 +126,19 @@ class ProductRepository extends AbstractRepository
      */
     public static function saveProduct(ProductModel $product): ProductModel
     {
-        $updatedTime = time();
         $insertData = [
             'title' => $product->getTitle(),
             'price' => $product->getPrice(),
-            'updatedDt' => $updatedTime,
             'isDeleted' => $product->getIsDeleted(),
             'productId' => $product->getId(),
         ];
         /** @var \PDO $pdo */
         $pdo = DI::service('mysql')->getConnection('write');
         $sql = 'update products set
-                    title = :title, price = :price, updatedDt = :updatedDt, isDeleted = :isDeleted
+                    title = :title, price = :price, updatedDt = unix_timestamp(), isDeleted = :isDeleted
                 where productId = :productId';
         $sth = $pdo->prepare($sql);
         $sth->execute($insertData);
-        $product->setUpdatedDt($updatedTime);
         return $product;
     }
 }

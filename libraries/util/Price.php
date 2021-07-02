@@ -14,12 +14,12 @@ class Price
 
     public static function toFloat(int $price): float
     {
-        return round($price / static::PRECISION, 2);
+        return $price / static::PRECISION;
     }
 
     public static function toInt(float $price): int
     {
-        return (int)($price * static::PRECISION);
+        return intval(round($price * static::PRECISION));
     }
 
 }

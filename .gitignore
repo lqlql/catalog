@@ -5,6 +5,7 @@
 *.save
 *.mo
 *.rdb
+.env
 
 composer.phar
 /vendor/*

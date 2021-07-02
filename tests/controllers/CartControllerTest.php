@@ -7,12 +7,6 @@ use PHPUnit\Framework\TestCase;
 use Controller\CartController;
 use Repository\CartRepository;
 
-
-//todo put in a separate file
-define('APP_PATH', realpath(__DIR__ . '/../../app'));
-$config = require APP_PATH . '/config/app.php';
-require APP_PATH . '/startup/services.php';
-
 class CartControllerTest extends TestCase
 {
     private const TEST_USER_ID = 1;
