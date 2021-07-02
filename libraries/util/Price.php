@@ -14,7 +14,7 @@ class Price
 
     public static function toFloat(int $price): float
     {
-        return $price / static::PRECISION;
+        return round($price / static::PRECISION, 2);
     }
 
     public static function toInt(float $price): int

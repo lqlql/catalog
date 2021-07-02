@@ -39,7 +39,7 @@ try {
     echo json_encode([
         'error' => $e->getMessage()
     ]);
-//    http_response_code(404);
+    http_response_code(404);
     exit;
 }
 
