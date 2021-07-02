@@ -1,38 +1,38 @@
 <?php
 
 return [
-    'catalog' => [
+    'api/catalog' => [
         'controller' => 'ProductController',
         'action' => 'getProductsAction',
         'method' => 'GET',
         'description' => 'get products'
     ],
-    'catalog/add/product' => [
+    'api/catalog/add/product' => [
         'controller' => 'ProductController',
         'action' => 'addProductAction',
         'method' => 'POST',
     ],
-    'catalog/delete/product' => [
+    'api/catalog/delete/product' => [
         'controller' => 'ProductController',
         'action' => 'deleteProductAction',
         'method' => 'DELETE',
     ],
-    'catalog/update/product' => [
+    'api/catalog/update/product' => [
         'controller' => 'ProductController',
         'action' => 'updateProductAction',
         'method' => 'PUT'
     ],
-    'cart' => [
+    'api/cart' => [
         'controller' => 'CartController',
         'action' => 'getCartAction',
         'method' => 'GET'
     ],
-    'cart/add/product' => [
+    'api/cart/add/product' => [
         'controller' => 'CartController',
         'action' => 'addProductToCartAction',
         'method' => 'POST'
     ],
-    'cart/remove/product' => [
+    'api/cart/remove/product' => [
         'controller' => 'CartController',
         'action' => 'removeProductFromCartAction',
         'method' => 'DELETE'

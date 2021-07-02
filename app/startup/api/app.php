@@ -1,20 +1,12 @@
 <?php
 declare(strict_types=1);
 
-require APP_PATH . '/../vendor/autoload.php';
+use Libs\DI;
 
-ini_set('display_errors', 'Off');
-error_reporting(-1);
-define('LOGDIR_PATH', realpath(APP_PATH . '/../logs'));
+require APP_PATH . '/startup/init.php';
 
-$config = require APP_PATH . '/config/app.php';
-
-require APP_PATH . '/startup/services.php';
-
-$routes = require APP_PATH . '/config/routes.php';
-$context = [];
-$params = [];
-
+$routes = DI::service('routes');
+$config = DI::service('config');
 if ('development' === $config['application']['env']) {
     ini_set('display_errors', 'On');
 }

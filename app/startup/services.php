@@ -3,9 +3,13 @@ declare(strict_types=1);
 
 use \DI\ContainerBuilder;
 
-return (function () use (&$config): void {
+$config = require APP_PATH . '/config/app.php';
+$routes = require APP_PATH . '/config/routes.php';
+
+return (function () use (&$config, $routes): void {
     $diConf = [
         'config' => $config,
+        'routes' => $routes,
         'mysql' => DI\factory(function () use (&$config): \Libs\Db\Mysql\ConnectionsContainer {
             $container = new Libs\Db\Mysql\ConnectionsContainer();
             foreach ((array)$config['database']['mysql']['connections'] as $idx => $params) {
