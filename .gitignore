@@ -9,5 +9,6 @@
 
 composer.phar
 /vendor/*
-
+docker/db/*
+tests/.phpunit.result.cache
 .idea/

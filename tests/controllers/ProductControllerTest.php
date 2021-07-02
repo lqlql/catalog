@@ -17,7 +17,6 @@ class ProductControllerTest extends TestCase
         foreach ($products as $product) {
             $controller = new ProductController($product);
             $addedProduct = $controller->addProductAction();
-            print_r($addedProduct);
             $this->assertSame($addedProduct, ['id' => $addedProduct['id']] + $product);
             $addedProducts[] = $addedProduct;
         }

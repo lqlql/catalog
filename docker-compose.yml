@@ -37,6 +37,6 @@ services:
     ports:
       - "8989:3306"
     volumes:
-      - "./data/db/mysql:/var/lib/mysql"
+      - "./docker/db/mysql:/var/lib/mysql"
     depends_on:
       - php-fpm

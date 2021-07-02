@@ -9,4 +9,5 @@ foreach ($files as $file) {
     $sql = file_get_contents($file);
     $pdo = DI::service('mysql')->getConnection('write');
     $sth = $pdo->query($sql);
+    $sth->closeCursor();
 }
